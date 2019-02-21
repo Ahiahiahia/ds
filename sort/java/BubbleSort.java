@@ -1,4 +1,4 @@
-package data_structure.sort.java;
+package sort.java;
 
 /**
  * 冒泡排序 - 升序排序
