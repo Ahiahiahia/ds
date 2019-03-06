@@ -140,4 +140,38 @@ public class BinarySearchTree {
         printTree(root.left);
         printTree(root.right);
     }
+
+    public int Tree(Node t1, Node t2){
+        boolean result = isChildTree(t1, t2);
+        if(result){
+            return 1;
+        }
+        return 0;
+    }
+    public boolean isChildTree(Node t1, Node t2){
+        boolean re = false;
+        if(t2 != null && t1 != null) {
+            if(t1.data == t2.data){
+                re = isTree(t1, t2);
+            }
+            if(!re){
+                re = isChildTree(t1.left, t2) ||
+                isChildTree(t1.right, t2
+                );
+            }
+        }
+        return re;
+    }
+    public boolean isTree(Node t1, Node t2){
+        if(t1 == null){
+            return false;
+        }
+        if(t2 == null){
+            return true;
+        }
+        if(t1.data != t2.data){
+            return false;
+        }
+        return isTree(t1.left, t2.left) && isTree(t1.right, t2.right);
+    }
 }
